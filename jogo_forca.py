@@ -14,7 +14,7 @@ def chutar_palavra(palavra):
     else:
         print("Você errou! Continue.")
         return False
-# Função para iniciar o jogo da forca
+# Função para iniciar o jogo da forcag
 def inicio_game():
     palavra = palavras()  # Escolhe uma palavra aleatória
     letras_acertadas = []  # Lista para armazenar as letras acertadas
