@@ -2,7 +2,7 @@ import random
 
 # Função para escolher uma palavra aleatória da lista
 def palavras():
-    lista_palavras = ["git ", "python", "linguagem", "programação", "HTML"]
+    lista_palavras = ["devweb", "python", "linguagem", "programação", "html"]
     return random.choice(lista_palavras)
 
 # Função para iniciar o jogo da forca
@@ -16,7 +16,7 @@ def inicio_game():
         letras_acertadas.append('_')
 
     print("Você ínicio o jogo da Forca!")
-    print("A palavra tem", len(palavra), "letras.") # Uma dica da quantidade de letras para o jogador
+    print("A palavra esta relacionada com programação, e tem", len(palavra), "letras.") # Uma dica da quantidade de letras para o jogador
     print(" ".join(letras_acertadas))  # Mostra o estado atual das letras acertadas
 
     # Loop principal do jogo, continua enquanto o jogador tiver tentativas restantes
@@ -28,8 +28,7 @@ def inicio_game():
             for i in range(len(palavra)):  # Itera sobre o comprimento da palavra
                 if palavra[i] == letra:  # Verifica se a letra no índice i da palavra é igual à letra digitada
                     letras_acertadas[i] = letra  # Atualiza a lista letras_acertadas na posição i
-                    print("Você acertou!", letras_acertadas) 
-                    break
+                    print("Você acertou!", letras_acertadas)
 
             if '_' not in letras_acertadas:  # Verifica se todas as letras foram acertadas
                 print("Parabéns! Você acertou a palavra:", palavra)
@@ -39,7 +38,15 @@ def inicio_game():
             print("Você errou! Tentativas restantes:", tentativas)
             if tentativas == 0:
                 print("Você perdeu! A palavra era:", palavra)
-                break
+   
+    jogar_novamente = input("Deseja jogar novamente? s/n")
+    if jogar_novamente.lower() == 's':
+        inicio_game()  # Inicia o jogo novamente
+    elif jogar_novamente.lower() == 'n':
+        print("Obrigado, volte sempre :)")  # Sai do jogo
+    else:
+        print("Opção inválida. Tente novamente.")  # Trata uma entrada inválida
+
 
 # Função para exibir as regras do jogo e apresentar o sub-menu
 def regras():
@@ -49,8 +56,10 @@ def regras():
     print("3. Cada letra errada resulta na perda de uma tentativa.")
     print("4. O jogo termina quando você adivinha a palavra ou perde todas as tentativas.")
     print("5. Você tem 7 tentativas para acertar a Palavra.")
-    print("6. Boa sorte!\n")
+    print("5. Dica: A palavra está relacionado com programação.")
+    print("7. Boa sorte!\n")
     print("1 - Jogar")
+
     print("2 - Voltar ao Menu")
     print("3 - Sair")
 
@@ -79,9 +88,10 @@ def menu():
     elif opcao == 2:
         regras()  # Exibe as regras e o sub-menu
     elif opcao == 3:
-        print("Obrigado volte sempre!")  # Sai do jogo
+        print("Obrigado, volte sempre :)")  # Sai do jogo
     else:
         print("Opção inválida. Tente novamente.")  # Trata uma entrada inválida
 
 # Chama a função para exibir o menu principal
 menu()
+
