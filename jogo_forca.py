@@ -5,6 +5,15 @@ def palavras():
     lista_palavras = ["devweb", "python", "linguagem", "programação", "html"]
     return random.choice(lista_palavras)
 
+#Função para chutar a palavra inteira
+def chutar_palavra(palavra):
+    palavra_chutada = input("Digite seu chute de palavra: ").lower()
+    if palavra_chutada == palavra:
+        print("Parabéns! Você acertou a palavra:", palavra)
+        return True
+    else:
+        print("Você errou! Continue.")
+        return False
 # Função para iniciar o jogo da forca
 def inicio_game():
     palavra = palavras()  # Escolhe uma palavra aleatória
@@ -21,7 +30,10 @@ def inicio_game():
 
     # Loop principal do jogo, continua enquanto o jogador tiver tentativas restantes
     while tentativas > 0:
-        letra = input("Digite uma letra: ").lower()  # Recebe uma letra do jogador e converte para minúsculas
+        letra = input("Digite uma letra: (Se desejar chutar a palavra por inteira, Digite 1) ").lower()  # Recebe uma letra do jogador e converte para minúsculas
+        if letra == '1':
+            if chutar_palavra(palavra):
+                break
 
         if letra in palavra:  # Verifica se a letra está na palavra
             # Atualiza a lista letras_acertadas com a letra correta nas posições corretas
