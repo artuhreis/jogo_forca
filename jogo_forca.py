@@ -2,7 +2,7 @@ import random
 
 # Função para escolher uma palavra aleatória da lista
 def palavras():
-    lista_palavras = ["devweb", "python", "linguagem", "programação", "html"]
+    lista_palavras = ["devweb", "python", "linguagem", "desenvoloper", "html"]
     return random.choice(lista_palavras)
 
 #Função para chutar a palavra inteira
