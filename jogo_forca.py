@@ -2,12 +2,12 @@ import random
 
 # Função para escolher uma palavra aleatória da lista
 def palavras():
-    lista_palavras = ["devweb", "python", "linguagem", "desenvoloper", "html"]
+    lista_palavras = ["DEVWEB", "PYTHON", "JAVASCRIPT", "DESENVELOPER", "HTML", "CSS"]
     return random.choice(lista_palavras)
 
 #Função para chutar a palavra inteira
 def chutar_palavra(palavra):
-    palavra_chutada = input("Digite seu chute de palavra: ").lower()
+    palavra_chutada = input("Digite seu chute de palavra: ").upper() # Recebe uma letra do jogador e converte para maiúsculas
     if palavra_chutada == palavra:
         print("Parabéns! Você acertou a palavra:", palavra)
         return True
@@ -30,7 +30,7 @@ def inicio_game():
 
     # Loop principal do jogo, continua enquanto o jogador tiver tentativas restantes
     while tentativas > 0:
-        letra = input("Digite uma letra: (Se desejar chutar a palavra por inteira, Digite 1) ").lower()  # Recebe uma letra do jogador e converte para minúsculas
+        letra = input("Digite uma letra: (Se desejar chutar a palavra por inteira, Digite 1) ").upper()  # Recebe uma letra do jogador e converte para maiúsculas
         if letra == '1':
             if chutar_palavra(palavra):
                 break
@@ -40,7 +40,8 @@ def inicio_game():
             for i in range(len(palavra)):  # Itera sobre o comprimento da palavra
                 if palavra[i] == letra:  # Verifica se a letra no índice i da palavra é igual à letra digitada
                     letras_acertadas[i] = letra  # Atualiza a lista letras_acertadas na posição i
-                    print("Você acertou!", letras_acertadas)
+                    print("Você acertou!")
+                    print(" ".join(letras_acertadas))# Imprime a letra correta na sua posição na palavra.
 
             if '_' not in letras_acertadas:  # Verifica se todas as letras foram acertadas
                 print("Parabéns! Você acertou a palavra:", palavra)
@@ -51,7 +52,7 @@ def inicio_game():
             if tentativas == 0:
                 print("Você perdeu! A palavra era:", palavra)
    
-    jogar_novamente = input("Deseja jogar novamente? s/n")
+    jogar_novamente = input("Deseja jogar novamente? s/n ").upper() # Recebe uma letra do jogador e converte para maiúsculas
     if jogar_novamente.lower() == 's':
         inicio_game()  # Inicia o jogo novamente
     elif jogar_novamente.lower() == 'n':
